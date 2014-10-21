@@ -1,5 +1,9 @@
- -- Just download an HTML document and print it.
- import Network.HTTP.Conduit
- import qualified Data.ByteString.Lazy as L
+module Main
+where
+import Control.Lens
+import Network.Wreq
 
- main = simpleHttp "http://www.haskell.org/" >>= L.putStr
+main :: IO ()
+main 
+  = do r <- get "http://www.haskell.org/"
+       putStrLn (show (r ^. responseBody))

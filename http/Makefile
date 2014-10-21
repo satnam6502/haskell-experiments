@@ -2,4 +2,4 @@ all:
 	ghc --make GetHaskellOrg.hs
 
 cabal:	
-	sudo cabal install http-conduit
+	cabal install -j --disable-tests wreq
